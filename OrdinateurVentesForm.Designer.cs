@@ -35,19 +35,19 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.nomLabel = new System.Windows.Forms.Label();
             this.VenteGroupBox = new System.Windows.Forms.GroupBox();
+            this.ordinateursComboBox = new System.Windows.Forms.ComboBox();
+            this.vendeurComboBox = new System.Windows.Forms.ComboBox();
+            this.totalPrixSaisieLabel = new System.Windows.Forms.Label();
+            this.PrixSaisieLabel = new System.Windows.Forms.Label();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.prixLabel = new System.Windows.Forms.Label();
             this.ordinateurLabel = new System.Windows.Forms.Label();
             this.vendeurLabel = new System.Windows.Forms.Label();
             this.transactionMenuStrip = new System.Windows.Forms.MenuStrip();
             this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.totalLabel = new System.Windows.Forms.Label();
-            this.prixLabel = new System.Windows.Forms.Label();
-            this.PrixSaisieLabel = new System.Windows.Forms.Label();
-            this.totalPrixSaisieLabel = new System.Windows.Forms.Label();
-            this.vendeurComboBox = new System.Windows.Forms.ComboBox();
-            this.ordinateursComboBox = new System.Windows.Forms.ComboBox();
-            this.ordinateurPictureBox = new System.Windows.Forms.PictureBox();
             this.enregistrerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprimerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordinateurPictureBox = new System.Windows.Forms.PictureBox();
             this.informationClientGroupBox.SuspendLayout();
             this.VenteGroupBox.SuspendLayout();
             this.transactionMenuStrip.SuspendLayout();
@@ -116,6 +116,56 @@
             this.VenteGroupBox.TabStop = false;
             this.VenteGroupBox.Text = "Vente";
             // 
+            // ordinateursComboBox
+            // 
+            this.ordinateursComboBox.FormattingEnabled = true;
+            this.ordinateursComboBox.Location = new System.Drawing.Point(106, 72);
+            this.ordinateursComboBox.Name = "ordinateursComboBox";
+            this.ordinateursComboBox.Size = new System.Drawing.Size(250, 21);
+            this.ordinateursComboBox.TabIndex = 13;
+            // 
+            // vendeurComboBox
+            // 
+            this.vendeurComboBox.FormattingEnabled = true;
+            this.vendeurComboBox.Location = new System.Drawing.Point(106, 36);
+            this.vendeurComboBox.Name = "vendeurComboBox";
+            this.vendeurComboBox.Size = new System.Drawing.Size(250, 21);
+            this.vendeurComboBox.TabIndex = 12;
+            // 
+            // totalPrixSaisieLabel
+            // 
+            this.totalPrixSaisieLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.totalPrixSaisieLabel.Location = new System.Drawing.Point(106, 149);
+            this.totalPrixSaisieLabel.Name = "totalPrixSaisieLabel";
+            this.totalPrixSaisieLabel.Size = new System.Drawing.Size(168, 24);
+            this.totalPrixSaisieLabel.TabIndex = 11;
+            // 
+            // PrixSaisieLabel
+            // 
+            this.PrixSaisieLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PrixSaisieLabel.Location = new System.Drawing.Point(106, 111);
+            this.PrixSaisieLabel.Name = "PrixSaisieLabel";
+            this.PrixSaisieLabel.Size = new System.Drawing.Size(168, 24);
+            this.PrixSaisieLabel.TabIndex = 10;
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Location = new System.Drawing.Point(22, 149);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(31, 13);
+            this.totalLabel.TabIndex = 9;
+            this.totalLabel.Text = "Total";
+            // 
+            // prixLabel
+            // 
+            this.prixLabel.AutoSize = true;
+            this.prixLabel.Location = new System.Drawing.Point(22, 112);
+            this.prixLabel.Name = "prixLabel";
+            this.prixLabel.Size = new System.Drawing.Size(24, 13);
+            this.prixLabel.TabIndex = 8;
+            this.prixLabel.Text = "Prix";
+            // 
             // ordinateurLabel
             // 
             this.ordinateurLabel.AutoSize = true;
@@ -154,55 +204,22 @@
             this.transactionToolStripMenuItem.Size = new System.Drawing.Size(90, 23);
             this.transactionToolStripMenuItem.Text = "Transaction";
             // 
-            // totalLabel
+            // enregistrerToolStripMenuItem
             // 
-            this.totalLabel.AutoSize = true;
-            this.totalLabel.Location = new System.Drawing.Point(22, 149);
-            this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(31, 13);
-            this.totalLabel.TabIndex = 9;
-            this.totalLabel.Text = "Total";
+            this.enregistrerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enregistrerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.save_48px;
+            this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enregistrerToolStripMenuItem.Text = "Enregistrer";
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
             // 
-            // prixLabel
+            // imprimerToolStripMenuItem
             // 
-            this.prixLabel.AutoSize = true;
-            this.prixLabel.Location = new System.Drawing.Point(22, 112);
-            this.prixLabel.Name = "prixLabel";
-            this.prixLabel.Size = new System.Drawing.Size(24, 13);
-            this.prixLabel.TabIndex = 8;
-            this.prixLabel.Text = "Prix";
-            // 
-            // PrixSaisieLabel
-            // 
-            this.PrixSaisieLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PrixSaisieLabel.Location = new System.Drawing.Point(106, 111);
-            this.PrixSaisieLabel.Name = "PrixSaisieLabel";
-            this.PrixSaisieLabel.Size = new System.Drawing.Size(168, 24);
-            this.PrixSaisieLabel.TabIndex = 10;
-            // 
-            // totalPrixSaisieLabel
-            // 
-            this.totalPrixSaisieLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.totalPrixSaisieLabel.Location = new System.Drawing.Point(106, 149);
-            this.totalPrixSaisieLabel.Name = "totalPrixSaisieLabel";
-            this.totalPrixSaisieLabel.Size = new System.Drawing.Size(168, 24);
-            this.totalPrixSaisieLabel.TabIndex = 11;
-            // 
-            // vendeurComboBox
-            // 
-            this.vendeurComboBox.FormattingEnabled = true;
-            this.vendeurComboBox.Location = new System.Drawing.Point(106, 36);
-            this.vendeurComboBox.Name = "vendeurComboBox";
-            this.vendeurComboBox.Size = new System.Drawing.Size(250, 21);
-            this.vendeurComboBox.TabIndex = 12;
-            // 
-            // ordinateursComboBox
-            // 
-            this.ordinateursComboBox.FormattingEnabled = true;
-            this.ordinateursComboBox.Location = new System.Drawing.Point(106, 72);
-            this.ordinateursComboBox.Name = "ordinateursComboBox";
-            this.ordinateursComboBox.Size = new System.Drawing.Size(250, 21);
-            this.ordinateursComboBox.TabIndex = 13;
+            this.imprimerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imprimerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.print_48px;
+            this.imprimerToolStripMenuItem.Name = "imprimerToolStripMenuItem";
+            this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.imprimerToolStripMenuItem.Text = "Imprimer";
             // 
             // ordinateurPictureBox
             // 
@@ -213,22 +230,6 @@
             this.ordinateurPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ordinateurPictureBox.TabIndex = 0;
             this.ordinateurPictureBox.TabStop = false;
-            // 
-            // enregistrerToolStripMenuItem
-            // 
-            this.enregistrerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.enregistrerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.save_48px;
-            this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
-            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.enregistrerToolStripMenuItem.Text = "Enregistrer";
-            // 
-            // imprimerToolStripMenuItem
-            // 
-            this.imprimerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imprimerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.print_48px;
-            this.imprimerToolStripMenuItem.Name = "imprimerToolStripMenuItem";
-            this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.imprimerToolStripMenuItem.Text = "Imprimer";
             // 
             // VoitureVentesForm
             // 
@@ -242,6 +243,7 @@
             this.MainMenuStrip = this.transactionMenuStrip;
             this.Name = "VoitureVentesForm";
             this.Text = "Voiture - Ventes";
+            this.Load += new System.EventHandler(this.VoitureVentesForm_Load);
             this.informationClientGroupBox.ResumeLayout(false);
             this.informationClientGroupBox.PerformLayout();
             this.VenteGroupBox.ResumeLayout(false);
