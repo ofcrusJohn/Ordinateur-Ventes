@@ -94,8 +94,8 @@
     <None Include="Resources\360_F_529652077_5hOSvo2bUHOUHALs7o3wcMAH73CIneTj.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Downloads\Ordinateur-Ventes-master %281%29\Ordinateur-Ventes-master\Transaction\Transaction.csproj">
-      <Project>{F3F97C1C-3CF9-4BF9-AA87-E2979D14CCCF}</Project>
+    <ProjectReference Include="Transaction\Transaction.csproj">
+      <Project>{F8E8734B-0B44-43B8-A030-6CAC7E486E83}</Project>
       <Name>Transaction</Name>
     </ProjectReference>
   </ItemGroup>
