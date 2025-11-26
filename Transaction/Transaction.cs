@@ -7,7 +7,8 @@
 
     Namespace:    TransactionNS
     
-    Description:  Classe métier pour la gestion des transactions de vente d'ordinateurs
+    Description:  Classe métier pour la gestion des 
+                    transactions de vente d'ordinateurs
 */
 
 using System;
