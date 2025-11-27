@@ -120,7 +120,7 @@ namespace TransactionNS
         {
             try
             {
-                
+
                 string chemin = "..\\..\\Data\\Ordinateurs.data";
                 using (StreamReader reader = new StreamReader(chemin, System.Text.Encoding.UTF8))
                 {
@@ -362,7 +362,7 @@ namespace TransactionNS
         /// </summary>
         public void Enregistrer()
         {
-            
+            Enregistrer(Nom, DateTransaction.ToShortDateString(), Vendeur, Ordinateur, Prix);
         }
 
         /// <summary>
@@ -370,7 +370,7 @@ namespace TransactionNS
         /// </summary>
         public void Enregistrer(string nom, string date, string vendeur, string ordinateur, decimal prix)
         {
-            
+
             try
             {
                 // Initialisation via les propriétés
@@ -403,6 +403,65 @@ namespace TransactionNS
                 throw new Exception($"Erreur lors de l'enregistrement : {ex.Message}");
             }
         }
+        #endregion
+
+        #region Methode Imprimer
+        public void Imprimer()
+        {
+            try
+            {
+                string chemin = "..\\..\\Data\\Transactions.data";
+                if (!File.Exists(chemin))
+                {
+                    throw new FileNotFoundException("Aucune transaction enregistrée.");
+                }
+
+                Console.WriteLine("========================================== LISTE DES TRANSACTIONS ==========================================="+"\n");
+                Console.WriteLine(string.Format(
+                    "{0,-20} | {1,-12} | {2,-27} | {3,-20} | {4,10}",
+                    "Client", "Date", "Vendeur", "Ordinateur", "Prix"
+                ));
+
+                Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
+
+                decimal totalVentes = 0;
+                int count = 0;
+
+                using (StreamReader reader = new StreamReader(chemin, System.Text.Encoding.UTF8))
+                {
+                    string ligne;
+                    while ((ligne = reader.ReadLine()) != null)
+                    {
+                        string[] p = ligne.Split(';');
+                        if (p.Length < 5) continue;
+
+                        string client = p[0];
+                        string date = p[1];
+                        string vendeur = p[2];
+                        string ordinateur = p[3];
+                        decimal prix = decimal.Parse(p[4], CultureInfo.GetCultureInfo("en-CA"));
+
+                        totalVentes += prix;
+                        count++;
+
+                        // Affichage formaté
+                        Console.WriteLine(string.Format(
+                            "{0,-20} | {1,-12} | {2,-27} | {3,-20} | {4,10:C2}",
+                            client, date, vendeur, ordinateur, prix
+                        ));
+                    }
+                }
+
+                Console.WriteLine("-------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine($"Total des ventes : {totalVentes.ToString("C", CultureInfo.GetCultureInfo("en-CA"))}");
+                Console.WriteLine($"Nombre de transactions : {count}");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erreur lors de l'impression : {ex.Message}");
+            }
+        }
+
         #endregion
     }
 }
