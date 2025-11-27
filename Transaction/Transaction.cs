@@ -397,14 +397,6 @@ namespace TransactionNS
                     writer.WriteLine(ligne);
                 }
 
-                Console.WriteLine("=== Transaction Enregistrée ===");
-                Console.WriteLine($"ID: {ID}");
-                Console.WriteLine($"Client: {Nom}");
-                Console.WriteLine($"Date: {DateTransaction.ToShortDateString()}");
-                Console.WriteLine($"Vendeur: {Vendeur}");
-                Console.WriteLine($"Ordinateur: {Ordinateur}");
-                Console.WriteLine($"Prix total: {Prix.ToString("C", CultureInfo.GetCultureInfo("en-CA"))}");
-                Console.WriteLine("==============================");
             }
             catch (Exception ex)
             {
