@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+     Programmeur:   Jean De La Croix Haba, Jerry Bostel Dountio Douanla, Ibrahima Elimane Dosso
+    Date:           Novembre 2025
+
+    Solution:     VentesOrdinateurs
+    Projet:       VentesOrdinateurs.csproj
+
+
+    Namespace:    {Ordinateur_Ventes}
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,7 +61,10 @@ namespace Ordinateur_Ventes
                     ordinateursComboBox.SelectedIndex = 0;
 
                 // Définir la date courante par défaut
-                dateTextBox.Text = DateTime.Now.ToShortDateString();
+                CultureInfo culture = new CultureInfo("fr-CA");
+                dateTextBox.Text = DateTime.Now.ToString("MMMM dd, yyyy", culture);
+                dateTextBox.Text = char.ToUpper(dateTextBox.Text[0]) + dateTextBox.Text.Substring(1);
+            
 
                 // Mettre à jour les prix initiaux
                 MettreAJourPrix();
@@ -101,6 +116,7 @@ namespace Ordinateur_Ventes
 
         #endregion
 
+        #region Enregistrer
         /// <summary>
         /// Événement pour le menu Enregistrer
         /// </summary>
@@ -130,8 +146,8 @@ namespace Ordinateur_Ventes
                 {
                     MessageBox.Show("La date n'est pas valide. La date courante sera utilisée.",
                                    "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dateValide = DateTime.Now;
-                    dateTextBox.Text = dateValide.ToShortDateString();
+                    DateTime date = ValiderDate(dateTextBox.Text);
+                    dateTextBox.Text = date.ToShortDateString();
                 }
 
                 // Obtenir le prix total (avec taxe)
@@ -165,9 +181,35 @@ namespace Ordinateur_Ventes
             }
         }
 
+        #endregion
+
+        #region comboBox
         private void ordinateursComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MettreAJourPrix();
+            try
+            {
+                MettreAJourPrix();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur: " + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region methodes de validation de la date
+        private DateTime ValiderDate(string dateTexte)
+        {
+            DateTime dateValide;
+
+
+            if (!DateTime.TryParse(dateTexte, out dateValide))
+            {
+                dateValide = DateTime.Now;
+            }
+
+            return dateValide;
         }
 
         private void dateTextBox_Validated(object sender, EventArgs e)
@@ -180,6 +222,24 @@ namespace Ordinateur_Ventes
                 dateTextBox.Focus();
             }
         }
+
+        #endregion
+
+        #region Imprimer
+        private void imprimerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                oTransaction.Imprimer();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'impression : " + ex.Message);
+            }
+
+        }
+
+        #endregion
     }
 
 }
