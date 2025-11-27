@@ -101,6 +101,69 @@ namespace Ordinateur_Ventes
 
         #endregion
 
+        /// <summary>
+        /// Événement pour le menu Enregistrer
+        /// </summary>
+        private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Valider les champs obligatoires
+                if (string.IsNullOrWhiteSpace(nomTextBox.Text))
+                {
+                    MessageBox.Show("Le nom du client est obligatoire.", "Validation",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    nomTextBox.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(dateTextBox.Text))
+                {
+                    MessageBox.Show("La date est obligatoire.", "Validation",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dateTextBox.Focus();
+                    return;
+                }
+
+                // Valider la date
+                if (!DateTime.TryParse(dateTextBox.Text, out DateTime dateValide))
+                {
+                    MessageBox.Show("La date n'est pas valide. La date courante sera utilisée.",
+                                   "Attention", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dateValide = DateTime.Now;
+                    dateTextBox.Text = dateValide.ToShortDateString();
+                }
+
+                // Obtenir le prix total (avec taxe)
+                decimal prixTotal = decimal.Parse(totalPrixSaisieLabel.Text.Replace("$", "").Replace(" ", ""),
+                                                NumberStyles.Currency, new CultureInfo("en-CA"));
+
+                // Enregistrer la transaction
+                oTransaction.Enregistrer(
+                    nomTextBox.Text.Trim(),
+                    dateTextBox.Text.Trim(),
+                    vendeurComboBox.SelectedItem.ToString(),
+                    ordinateursComboBox.SelectedItem.ToString(),
+                    prixTotal
+                );
+
+                MessageBox.Show("Transaction enregistrée avec succès!", "Succès",
+                               MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Réinitialiser le formulaire
+                nomTextBox.Clear();
+                dateTextBox.Text = DateTime.Now.ToShortDateString();
+                vendeurComboBox.SelectedIndex = 0;
+                ordinateursComboBox.SelectedIndex = 0;
+                MettreAJourPrix();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erreur lors de l'enregistrement: {ex.Message}", "Erreur",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
 }

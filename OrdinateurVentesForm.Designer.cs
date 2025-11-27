@@ -61,9 +61,9 @@
             this.informationClientGroupBox.Controls.Add(this.dateLabel);
             this.informationClientGroupBox.Controls.Add(this.nomLabel);
             this.informationClientGroupBox.Location = new System.Drawing.Point(44, 351);
-            this.informationClientGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.informationClientGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.informationClientGroupBox.Name = "informationClientGroupBox";
-            this.informationClientGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.informationClientGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.informationClientGroupBox.Size = new System.Drawing.Size(575, 160);
             this.informationClientGroupBox.TabIndex = 2;
             this.informationClientGroupBox.TabStop = false;
@@ -72,7 +72,7 @@
             // dateTextBox
             // 
             this.dateTextBox.Location = new System.Drawing.Point(111, 96);
-            this.dateTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dateTextBox.Name = "dateTextBox";
             this.dateTextBox.Size = new System.Drawing.Size(408, 22);
             this.dateTextBox.TabIndex = 3;
@@ -80,7 +80,7 @@
             // nomTextBox
             // 
             this.nomTextBox.Location = new System.Drawing.Point(111, 44);
-            this.nomTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nomTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nomTextBox.Name = "nomTextBox";
             this.nomTextBox.Size = new System.Drawing.Size(408, 22);
             this.nomTextBox.TabIndex = 2;
@@ -116,9 +116,9 @@
             this.VenteGroupBox.Controls.Add(this.ordinateurLabel);
             this.VenteGroupBox.Controls.Add(this.vendeurLabel);
             this.VenteGroupBox.Location = new System.Drawing.Point(44, 540);
-            this.VenteGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VenteGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.VenteGroupBox.Name = "VenteGroupBox";
-            this.VenteGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VenteGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.VenteGroupBox.Size = new System.Drawing.Size(569, 238);
             this.VenteGroupBox.TabIndex = 3;
             this.VenteGroupBox.TabStop = false;
@@ -128,7 +128,7 @@
             // 
             this.ordinateursComboBox.FormattingEnabled = true;
             this.ordinateursComboBox.Location = new System.Drawing.Point(141, 89);
-            this.ordinateursComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ordinateursComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.ordinateursComboBox.Name = "ordinateursComboBox";
             this.ordinateursComboBox.Size = new System.Drawing.Size(332, 24);
             this.ordinateursComboBox.TabIndex = 13;
@@ -137,7 +137,7 @@
             // 
             this.vendeurComboBox.FormattingEnabled = true;
             this.vendeurComboBox.Location = new System.Drawing.Point(141, 44);
-            this.vendeurComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vendeurComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.vendeurComboBox.Name = "vendeurComboBox";
             this.vendeurComboBox.Size = new System.Drawing.Size(332, 24);
             this.vendeurComboBox.TabIndex = 12;
@@ -226,22 +226,23 @@
             this.enregistrerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enregistrerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.save_48px;
             this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
-            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.enregistrerToolStripMenuItem.Text = "Enregistrer";
+            this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
             // 
             // imprimerToolStripMenuItem
             // 
             this.imprimerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imprimerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.print_48px;
             this.imprimerToolStripMenuItem.Name = "imprimerToolStripMenuItem";
-            this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
+            this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.imprimerToolStripMenuItem.Text = "Imprimer";
             // 
             // ordinateurPictureBox
             // 
             this.ordinateurPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("ordinateurPictureBox.Image")));
             this.ordinateurPictureBox.Location = new System.Drawing.Point(49, 64);
-            this.ordinateurPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ordinateurPictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.ordinateurPictureBox.Name = "ordinateurPictureBox";
             this.ordinateurPictureBox.Size = new System.Drawing.Size(559, 240);
             this.ordinateurPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -258,7 +259,7 @@
             this.Controls.Add(this.ordinateurPictureBox);
             this.Controls.Add(this.transactionMenuStrip);
             this.MainMenuStrip = this.transactionMenuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VoitureVentesForm";
             this.Text = "Voiture - Ventes";
             this.Load += new System.EventHandler(this.VoitureVentesForm_Load);

@@ -120,26 +120,24 @@ namespace TransactionNS
         {
             try
             {
+                
                 string chemin = "..\\..\\Data\\Ordinateurs.data";
                 using (StreamReader reader = new StreamReader(chemin, System.Text.Encoding.UTF8))
                 {
-                    // Compter le nombre de lignes
-                    List<string> modeles = new List<string>();
-                    List<decimal> prix = new List<decimal>();
+                    // Lire le nombre d'ordinateurs (première ligne)
+                    int nombre = int.Parse(reader.ReadLine());
 
-                    string ligne;
-                    while ((ligne = reader.ReadLine()) != null)
+                    tOrdinateurs = new string[nombre];
+                    tPrix = new decimal[nombre];
+
+                    // Lire les données des ordinateurs
+                    for (int i = 0; i < nombre; i++)
                     {
+                        string ligne = reader.ReadLine();
                         string[] parties = ligne.Split(';');
-                        if (parties.Length >= 2)
-                        {
-                            modeles.Add(parties[0].Trim());
-                            prix.Add(decimal.Parse(parties[1].Trim(), CultureInfo.GetCultureInfo("en-CA")));
-                        }
+                        tOrdinateurs[i] = parties[0].Trim();
+                        tPrix[i] = decimal.Parse(parties[1].Trim(), CultureInfo.GetCultureInfo("en-CA"));
                     }
-
-                    tOrdinateurs = modeles.ToArray();
-                    tPrix = prix.ToArray();
                 }
             }
             catch (FormatException ex)
@@ -336,23 +334,6 @@ namespace TransactionNS
             return tPrix[index];
         }
 
-        /// <summary>
-        /// Obtient le prix pour un ordinateur spécifique (par nom)
-        /// </summary>
-        /// <param name="ordinateur">Ordinateur sous forme de chaîne</param>
-        /// <returns>Prix correspondant</returns>
-        public decimal GetPrix(string ordinateur)
-        {
-            int index = Array.IndexOf(tOrdinateurs, ordinateur);
-
-            if (index == -1)
-            {
-                throw new ArgumentException("Ordinateur invalide.", nameof(ordinateur));
-            }
-
-            return tPrix[index];
-        }
-
         #endregion
 
         #region Constructeurs
@@ -372,33 +353,6 @@ namespace TransactionNS
             InitOrdinateurs();
         }
 
-        /// <summary>
-        /// Constructeur avec paramètres pour initialiser une transaction complète
-        /// </summary>
-        public Transaction(string nom, string date, string vendeur, string ordinateur, decimal prix)
-        {
-            // Génération automatique de l'ID
-            idInt = new Random().Next(1000, 9999);
-
-            // Initialisation des tableaux et messages d'erreurs
-            InitMessagesErreurs();
-            InitVendeurs();
-            InitOrdinateurs();
-
-            // Initialisation via les propriétés (avec validation)
-            Nom = nom;
-            Vendeur = vendeur;
-            Ordinateur = ordinateur;
-            Prix = prix;
-
-            // Validation de la date
-            if (!DateTime.TryParse(date, out DateTime dateValide))
-            {
-                dateValide = DateTime.Now;
-            }
-            DateTransaction = dateValide;
-        }
-
         #endregion
 
         #region Méthodes d'enregistrement
@@ -408,8 +362,30 @@ namespace TransactionNS
         /// </summary>
         public void Enregistrer()
         {
+            
+        }
+
+        /// <summary>
+        /// Enregistre une transaction avec les paramètres fournis
+        /// </summary>
+        public void Enregistrer(string nom, string date, string vendeur, string ordinateur, decimal prix)
+        {
+            
             try
             {
+                // Initialisation via les propriétés
+                Nom = nom;
+                Vendeur = vendeur;
+                Ordinateur = ordinateur;
+                Prix = prix;
+
+                // Validation de la date
+                if (!DateTime.TryParse(date, out DateTime dateValide))
+                {
+                    dateValide = DateTime.Now;
+                }
+                DateTransaction = dateValide;
+
                 // Incrémenter le nombre de transactions
                 NombreTransactions++;
 
@@ -434,28 +410,6 @@ namespace TransactionNS
             {
                 throw new Exception($"Erreur lors de l'enregistrement : {ex.Message}");
             }
-        }
-
-        /// <summary>
-        /// Enregistre une transaction avec les paramètres fournis
-        /// </summary>
-        public void Enregistrer(string nom, string date, string vendeur, string ordinateur, decimal prix)
-        {
-            // Initialisation via les propriétés
-            Nom = nom;
-            Vendeur = vendeur;
-            Ordinateur = ordinateur;
-            Prix = prix;
-
-            // Validation de la date
-            if (!DateTime.TryParse(date, out DateTime dateValide))
-            {
-                dateValide = DateTime.Now;
-            }
-            DateTransaction = dateValide;
-
-            // Appel de la méthode Enregistrer sans paramètre
-            Enregistrer();
         }
         /** Pour la personne qui doit faire sa
         /// <summary>
