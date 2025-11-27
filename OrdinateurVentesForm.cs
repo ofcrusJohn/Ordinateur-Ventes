@@ -75,7 +75,7 @@ namespace Ordinateur_Ventes
         /// <summary>
         /// Met à jour les prix lorsqu'un ordinateur est sélectionné
         /// </summary>
-        private void MettreAJourPrix()
+        public void MettreAJourPrix()
         {
             try
             {
@@ -162,6 +162,22 @@ namespace Ordinateur_Ventes
             {
                 MessageBox.Show($"Erreur lors de l'enregistrement: {ex.Message}", "Erreur",
                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ordinateursComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MettreAJourPrix();
+        }
+
+        private void dateTextBox_Validated(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(dateTextBox.Text) &&
+        !DateTime.TryParse(dateTextBox.Text, out _))
+            {
+                MessageBox.Show("Format de date invalide. Utilisez le format JJ/MM/AAAA.",
+                               "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTextBox.Focus();
             }
         }
     }

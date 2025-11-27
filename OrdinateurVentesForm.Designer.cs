@@ -76,6 +76,7 @@
             this.dateTextBox.Name = "dateTextBox";
             this.dateTextBox.Size = new System.Drawing.Size(408, 22);
             this.dateTextBox.TabIndex = 3;
+            this.dateTextBox.Validated += new System.EventHandler(this.dateTextBox_Validated);
             // 
             // nomTextBox
             // 
@@ -132,6 +133,7 @@
             this.ordinateursComboBox.Name = "ordinateursComboBox";
             this.ordinateursComboBox.Size = new System.Drawing.Size(332, 24);
             this.ordinateursComboBox.TabIndex = 13;
+            this.ordinateursComboBox.SelectedIndexChanged += new System.EventHandler(this.ordinateursComboBox_SelectedIndexChanged);
             // 
             // vendeurComboBox
             // 
@@ -226,7 +228,7 @@
             this.enregistrerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enregistrerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.save_48px;
             this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
-            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.enregistrerToolStripMenuItem.Text = "Enregistrer";
             this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
             // 
@@ -235,7 +237,7 @@
             this.imprimerToolStripMenuItem.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imprimerToolStripMenuItem.Image = global::Ordinateur_Ventes.Properties.Resources.print_48px;
             this.imprimerToolStripMenuItem.Name = "imprimerToolStripMenuItem";
-            this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.imprimerToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.imprimerToolStripMenuItem.Text = "Imprimer";
             // 
             // ordinateurPictureBox
