@@ -411,51 +411,6 @@ namespace TransactionNS
                 throw new Exception($"Erreur lors de l'enregistrement : {ex.Message}");
             }
         }
-        /** Pour la personne qui doit faire sa
-        /// <summary>
-        /// Affiche le contenu du fichier Transactions.data
-        /// </summary>
-        public void Imprimer()
-        {
-            try
-            {
-                string chemin = "..\\..\\Data\\Transactions.data";
-                if (!File.Exists(chemin))
-                {
-                    throw new FileNotFoundException("Aucune transaction enregistrée.");
-                }
-
-                Console.WriteLine("=== LISTE DES TRANSACTIONS ===");
-                Console.WriteLine("Client | Date | Vendeur | Ordinateur | Prix");
-                Console.WriteLine("--------------------------------------------");
-
-                decimal totalVentes = 0;
-                int count = 0;
-                using (StreamReader reader = new StreamReader(chemin, System.Text.Encoding.UTF8))
-                {
-                    string ligne;
-                    while ((ligne = reader.ReadLine()) != null)
-                    {
-                        Console.WriteLine(ligne);
-                        string[] parties = ligne.Split(';');
-                        if (parties.Length >= 5 && decimal.TryParse(parties[4], NumberStyles.Any, CultureInfo.GetCultureInfo("en-CA"), out decimal prix))
-                        {
-                            totalVentes += prix;
-                            count++;
-                        }
-                    }
-                }
-
-                Console.WriteLine("--------------------------------------------");
-                Console.WriteLine($"Total des ventes: {totalVentes.ToString("C", CultureInfo.GetCultureInfo("en-CA"))}");
-                Console.WriteLine($"Nombre de transactions: {count}");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erreur lors de l'impression : {ex.Message}");
-            }
-        }*/
-
         #endregion
     }
 }
