@@ -357,13 +357,6 @@ namespace TransactionNS
 
         #region Méthodes d'enregistrement
 
-        /// <summary>
-        /// Enregistre la transaction courante dans le système
-        /// </summary>
-        public void Enregistrer()
-        {
-            Enregistrer(Nom, DateTransaction.ToShortDateString(), Vendeur, Ordinateur, Prix);
-        }
 
         /// <summary>
         /// Enregistre une transaction avec les paramètres fournis
